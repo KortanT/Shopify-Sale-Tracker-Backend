@@ -1,0 +1,7 @@
+{
+    "env": {
+        "mongoose_user": "modern_root",
+        "mongoose_pwd": "HEjAnc5zNR7HAWkW",
+        "JWT_SECRET_KEY": "cb33*1014c5f3*f9"
+    }
+}
