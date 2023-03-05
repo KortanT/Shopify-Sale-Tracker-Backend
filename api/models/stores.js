@@ -4,7 +4,8 @@ const shopSchema = mongoose.Schema({
     _id: mongoose.Types.ObjectId,
     name: String,
     description: String,
-    assignedUserId: String
+    assignedUserId: String,
+    storeId: String
 });
 
 module.exports = mongoose.model('Shop', shopSchema);

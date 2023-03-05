@@ -10,14 +10,31 @@ const User = require('../models/users');
 //FIXME
 router.get('/:storeId', async (req, resp, next) => {
     const storeId = req.params.storeId;
-    const accessToken = req.headers['access-token'];
-    const userId = await Authorization.run(accessToken);
-    console.log(userId)
+    const accessToken = req.headers['authorization'];
+    console.log(req.headers);
+    if(accessToken){
+        const userId = await Authorization.getUserId(accessToken)
+        const status = await Authorization.hasPermission(userId, storeId);
+        if(status){
+        const storeInfo = await Authorization.getStoreInfo(storeId);
+            resp.json({
+                storeInfo
+        })  
+        }else{
+            resp.json({
+                error: "Forbidden 403"
+            })  
+        }
+    }else{
+        resp.json({
+                error: "missing authentication"
+            })  
+    }
+    
+    
 
     
-    resp.status(200).json({
-        message: "get success"
-    })
+    
 })
 
 {/* Delete Store */}
