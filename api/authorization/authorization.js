@@ -29,7 +29,7 @@ class userObject {
 
 
 
-//FIXME
+
 async function getUserId(accessToken){
     try{
         const foundUser = await User.findOne({authToken: accessToken});
@@ -62,8 +62,6 @@ async function getStoreInfo(shopId){
     }catch{
         return "error"
     }
-
-
 }
 
 

@@ -12,6 +12,12 @@ router.get('/', (req, resp, next) => {
     })
 })
 
+router.get('/update', (req, resp, next) => {
+    resp.status(200).json({
+        status: "success"
+    })
+})
+
 {/* Add a new Store */}
 router.post('/add', (req, resp, next) => {
         const newUser = new Authorization.userObject(req.body.username)
